@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Song</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #191414; /* Dark background */
+            color: #fff; /* White text */
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #282828; /* Darker container */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            color: #1DB954; /* Spotify Green */
+            margin-bottom: 20px;
+        }
+        label {
+            margin: 10px 0;
+            display: block; /* Makes labels block elements */
+            font-weight: bold; /* Bold labels */
+        }
+        input[type="text"],
+        textarea {
+            width: calc(100% - 22px); /* Full width with padding */
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc; /* Light border */
+            border-radius: 4px;
+            background: #3A3A3A; /* Dark input background */
+            color: #fff; /* White text */
+        }
+        textarea {
+            resize: vertical; /* Allow vertical resizing */
+            height: 100px; /* Default height for textarea */
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #1DB954; /* Spotify Green */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px; /* Space above button */
+        }
+        button:hover {
+            background-color: #1AAE3A; /* Darker green on hover */
+        }
+        a {
+            display: inline-block; /* Make link a block element */
+            margin-top: 20px; /* Space above link */
+            color: #1DB954; /* Spotify Green */
+            text-decoration: none; /* Remove underline */
+        }
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Update Song</h1>
+        <form action="/update/<%= song.id %>" method="POST">
+            <div>
+                <label for="name">Song Name:</label>
+                <input type="text" id="name" name="name" value="<%= song.name %>" required>
+            </div>
+            <div>
+                <label for="artist">Artist:</label>
+                <input type="text" id="artist" name="artist" value="<%= song.artist %>" required>
+            </div>
+            <div>
+                <label for="genre">Genre:</label>
+                <input type="text" id="genre" name="genre" value="<%= song.genre %>" required>
+            </div>
+            <div>
+                <label for="lyrics">Lyrics:</label>
+                <textarea id="lyrics" name="lyrics" required><%= song.lyrics %></textarea>
+            </div>
+            <button type="submit">Update Song</button>
+        </form>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

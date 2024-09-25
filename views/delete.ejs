@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Song</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #191414; /* Dark background */
+            color: #fff; /* White text */
+            margin: 0;
+            padding: 20px;
+        }
+        .delete-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #282828; /* Darker container */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center; /* Center text */
+        }
+        h1 {
+            color: #1DB954; /* Spotify Green */
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1em; /* Slightly larger text */
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #1DB954; /* Spotify Green */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 10px; /* Space between buttons */
+        }
+        button:hover {
+            background-color: #1AAE3A; /* Darker green on hover */
+        }
+        .btn.danger {
+            background-color: #C0392B; /* Red color for danger */
+        }
+        .btn.danger:hover {
+            background-color: #A93226; /* Darker red on hover */
+        }
+        a {
+            text-decoration: none;
+            color: #fff; /* White text */
+        }
+    </style>
+</head>
+<body>
+    <div class="delete-container">
+        <h1>Delete Song</h1>
+        <p>Are you sure you want to delete the following song?</p>
+
+        <!-- Here, the song details are displayed -->
+        <h2><%= song.name %> by <%= song.artist %></h2>
+
+        <!-- Form to delete the song, action links to the delete route with the song ID -->
+        <form action="/delete/<%= song.id %>" method="POST">
+            <button type="submit" class="btn danger">Delete</button>
+            <a href="/" class="btn">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>
